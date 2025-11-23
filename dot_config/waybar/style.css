@@ -1,90 +1,205 @@
 @import "../omarchy/current/theme/waybar.css";
 
-* {
-  background-color: @background;
-  color: @foreground;
+/* --- GRUVBOX COLOR PALETTE --- */
+@define-color bg      #282828; /* Dark Main Background */
+@define-color bg1     #3c3836; /* Module Background */
+@define-color bg2     #504945;
+@define-color fg      #ebdbb2;
+@define-color red     #cc241d;
+@define-color green   #98971a;
+@define-color yellow  #d79921;
+@define-color blue    #458588;
+@define-color purple  #b16286;
+@define-color aqua    #689d6a;
+@define-color orange  #d65d0e;
+@define-color gray    #a89984;
 
+/* ============================================== */
+
+* {
   border: none;
   border-radius: 0;
-  min-height: 0;
   font-family: 'JetBrainsMono Nerd Font';
-  font-size: 17px;
+
+  /* --- MASTER CONTROL --- */
+  /* Change this ONE number to scale the entire bar (except RunCat) */
+  font-size: 14px;
+  min-height: 0;
 }
 
-.modules-left {
-  margin-left: 0px;
+window#waybar {
+  background-color: @bg; /* Solid Background */
+  color: @fg;
 }
 
-.modules-right {
-  margin-right: 0px;
-}
-
-#workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
-}
-
-#workspaces button.empty {
-  opacity: 0.5;
-}
-
+/* --- SHARED BLOCK STYLING --- */
+#clock,
 #cpu,
 #battery,
 #pulseaudio,
-#custom-omarchy {
-margin: 0 10px;
-}
+#network,
+#bluetooth,
+#tray,
+#custom-omarchy,
+#custom-runcat,
+#custom-update,
 #custom-screenrecording-indicator,
+#custom-expand-icon,
+#workspaces button {
+    color: @fg;
+    background-color: @bg1;
 
+    /* Proportional Margins (using em) */
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+
+    /* Proportional Padding */
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+
+    min-width: 1.5em;
+}
+
+/* --- WORKSPACES --- */
+
+#workspaces button {
+    background-color: @bg1;
+    color: @fg;
+    margin-right: 0;
+    margin-left: 0.15em;
+    padding: 0 0.5em;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    background-color: @orange;
+    color: @bg;
+    opacity: 1;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @fg;
+    opacity: 1;
+}
+
+/* Faded Empty Workspaces */
+#workspaces button.empty {
+    background-color: @bg1;
+    color: @fg;
+    opacity: 0.3; /* Dimmed */
+}
+
+#workspaces button.empty:hover {
+    opacity: 0.7;
+}
+
+/* --- SPECIFIC MODULES --- */
+
+/* 1. RunCat (Custom Large Size) */
 #custom-runcat {
-margin-left: 10px;
-font-size: 25px;
-}
-#custom-update {
-  min-width: 12px;
-  margin: 0 7.5px;
-}
-
-#tray {
-  margin-right: 16px;
+    background-color: @purple;
+    /* Override global font size */
+    font-size: 24px;
+    /* Tighter padding since the font is huge */
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    /* Adjust vertical alignment if it looks too low */
+    padding-bottom: 0;
 }
 
-#bluetooth {
-  margin-right: 17px;
-}
-
-#network {
-  margin-right: 13px;
-}
-
-#custom-expand-icon {
-  margin-right: 18px;
-}
-
-tooltip {
-  padding: 2px;
-}
-
-#custom-update {
-  font-size: 10px;
-}
-
+/* 2. Left Modules */
 #clock {
-  margin-left: 8.75px;
+    background-color: @blue;
+    color: @bg;
 }
 
-.hidden {
-  opacity: 0;
+#custom-update {
+    background-color: @yellow;
+    color: @bg;
 }
 
 #custom-screenrecording-indicator {
-  min-width: 12px;
-  margin-left: 8.75px;
-  font-size: 10px;
+    background-color: @red;
+    color: @fg;
 }
 
-#custom-screenrecording-indicator.active {
-  color: #a55555;
+#custom-omarchy {
+    background-color: @aqua;
+    color: @bg;
+    font-size: 1.2em;
+    padding: 0 0.6em;
+}
+
+/* 3. Right Modules */
+#group-tray-expander {
+    background-color: @blue;
+}
+
+#custom-expand-icon {
+    background-color: @blue;
+    padding-right: 0.4em;
+}
+
+#tray {
+    background-color: @bg1;
+    padding: 0 0.5em;
+}
+
+#bluetooth {
+    background-color: @yellow;
+    color: @bg;
+}
+
+#network {
+    background-color: @purple;
+    color: @fg;
+}
+
+#pulseaudio {
+    background-color: @aqua;
+    color: @bg;
+}
+
+#cpu {
+    background-color: @red;
+    color: @fg;
+}
+
+/* Battery */
+#battery {
+    background-color: @fg;
+    color: @bg;
+}
+
+#battery.charging {
+    background-color: @green;
+    color: @bg;
+}
+
+#battery.warning:not(.charging) {
+    background-color: @yellow;
+    color: @bg;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @fg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+tooltip {
+    background: @bg;
+    border: 2px solid @bg1;
+    color: @fg;
+}
+
+@keyframes blink {
+    to { background-color: @fg; color: @red; }
 }
