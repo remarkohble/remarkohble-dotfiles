@@ -1,5 +1,7 @@
 @import "../omarchy/current/theme/waybar.css";
 
+@import "../omarchy/current/theme/waybar.css";
+
 /* --- GRUVBOX COLOR PALETTE --- */
 @define-color bg      #282828; /* Dark Main Background */
 @define-color bg1     #3c3836; /* Module Background */
@@ -21,9 +23,8 @@
   border-radius: 0;
   font-family: 'JetBrainsMono Nerd Font';
 
-  /* --- MASTER CONTROL --- */
-  /* Change this ONE number to scale the entire bar (except RunCat) */
-  font-size: 14px;
+  /* --- MASTER SIZE CONTROL --- */
+  font-size: 13px;
   min-height: 0;
 }
 
@@ -32,7 +33,7 @@ window#waybar {
   color: @fg;
 }
 
-/* --- SHARED BLOCK STYLING --- */
+/* --- UNIFORM TILE STYLING (SHARED) --- */
 #clock,
 #cpu,
 #battery,
@@ -49,27 +50,36 @@ window#waybar {
     color: @fg;
     background-color: @bg1;
 
-    /* Proportional Margins (using em) */
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
-    margin-left: 0.25em;
-    margin-right: 0.25em;
+    /* 1. THIN MARGINS (Gap from monitor edge) */
+    margin-top: 2px;
+    margin-bottom: 2px;
 
-    /* Proportional Padding */
-    padding-left: 0.75em;
-    padding-right: 0.75em;
+    /* 2. GAP BETWEEN MODULES */
+    margin-left: 3px;
+    margin-right: 3px;
 
-    min-width: 1.5em;
+    /* 3. TIGHT PADDING (Controls bar thickness) */
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    /* Side padding */
+    padding-left: 10px;
+    padding-right: 10px;
+
+    /* Uniformity */
+    min-width: 20px;
 }
 
 /* --- WORKSPACES --- */
-
 #workspaces button {
     background-color: @bg1;
     color: @fg;
-    margin-right: 0;
-    margin-left: 0.15em;
-    padding: 0 0.5em;
+    /* Reset padding to make them square-ish */
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 26px;
     transition: all 0.3s ease;
 }
 
@@ -89,28 +99,25 @@ window#waybar {
 #workspaces button.empty {
     background-color: @bg1;
     color: @fg;
-    opacity: 0.3; /* Dimmed */
+    opacity: 0.3;
 }
 
 #workspaces button.empty:hover {
     opacity: 0.7;
 }
 
-/* --- SPECIFIC MODULES --- */
+/* --- SPECIFIC MODULE CONFIGURATION --- */
 
-/* 1. RunCat (Custom Large Size) */
+/* RunCat: Custom size to fit the thin bar */
 #custom-runcat {
     background-color: @purple;
-    /* Override global font size */
-    font-size: 24px;
-    /* Tighter padding since the font is huge */
-    padding-left: 0.2em;
-    padding-right: 0.2em;
-    /* Adjust vertical alignment if it looks too low */
-    padding-bottom: 0;
+    color: @bg;
+    font-size: 19px;     /* Big, but not too big for a thin bar */
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 0;   /* Tight trim */
 }
 
-/* 2. Left Modules */
 #clock {
     background-color: @blue;
     color: @bg;
@@ -129,23 +136,25 @@ window#waybar {
 #custom-omarchy {
     background-color: @aqua;
     color: @bg;
-    font-size: 1.2em;
-    padding: 0 0.6em;
+    font-size: 16px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
-/* 3. Right Modules */
+/* Right Modules */
 #group-tray-expander {
     background-color: @blue;
 }
 
 #custom-expand-icon {
     background-color: @blue;
-    padding-right: 0.4em;
+    padding-right: 4px;
+    color: @bg;
 }
 
 #tray {
     background-color: @bg1;
-    padding: 0 0.5em;
+    padding: 0 8px;
 }
 
 #bluetooth {
@@ -188,10 +197,9 @@ window#waybar {
     background-color: @red;
     color: @fg;
     animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    animation-duration: 0.5s;
 }
 
 tooltip {
