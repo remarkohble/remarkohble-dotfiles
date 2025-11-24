@@ -51,8 +51,8 @@ window#waybar {
     background-color: @bg1;
 
     /* 1. THIN MARGINS (Gap from monitor edge) */
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 7px;
+    margin-bottom: 7px;
 
     /* 2. GAP BETWEEN MODULES */
     margin-left: 3px;
