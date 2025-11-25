@@ -4,5 +4,5 @@ Version=18.1
 Name=Modelsim 18.1 Lite
 Comment=Modelsim 18.1 Lite
 Icon=/home/embeepee/intelFPGA_lite/18.1/quartus/adm/quartusii.png
-Exec=distrobox enter fedora42 -- /home/embeepee/intelFPGA_lite/18.1/modelsim_ase/bin/vsim
+Exec=distrobox enter fedora42 -- bash -c "wmname LG3D; export _JAVA_AWT_WM_NONREPARENTING=1; /home/embeepee/intelFPGA_lite/18.1/modelsim_ase/bin/vsim"
 Terminal=true
