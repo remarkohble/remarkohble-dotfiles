@@ -1,8 +1,15 @@
 [Desktop Entry]
 Type=Application
 Version=18.1
-Name=Quartus Prime 18.1 Prime Lite
-Comment=Quartus (Quartus Prime 18.1) Lite Edition
+Name=Quartus Prime 18.1 Lite
+Comment=Quartus Prime Lite (Distrobox)
 Icon=/home/embeepee/intelFPGA_lite/18.1/quartus/adm/quartusii.png
-Exec=distrobox enter fedora42 -- /home/embeepee/intelFPGA_lite/18.1/quartus/bin/quartus
+# The Magic Line:
+# 1. Enters container 'quartus18.1'
+# 2. Sets WM name to LG3D (Tricks Java)
+# 3. Sets NONREPARENTING (Fixes White Screen)
+# 4. Launches Quartus
+Exec=distrobox enter fedora42 -- bash -c "wmname LG3D; export _JAVA_AWT_WM_NONREPARENTING=1; /home/embeepee/intelFPGA_lite/18.1/quartus/bin/quartus"
 Terminal=false
+Categories=Development;Electronics;
+StartupNotify=true
