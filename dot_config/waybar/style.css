@@ -1,35 +1,16 @@
 @import "../omarchy/current/theme/waybar.css";
-
-@import "../omarchy/current/theme/waybar.css";
-
-/* --- GRUVBOX COLOR PALETTE --- */
-@define-color bg      #282828; /* Dark Main Background */
-@define-color bg1     #3c3836; /* Module Background */
-@define-color bg2     #504945;
-@define-color fg      #ebdbb2;
-@define-color red     #cc241d;
-@define-color green   #98971a;
-@define-color yellow  #d79921;
-@define-color blue    #458588;
-@define-color purple  #b16286;
-@define-color aqua    #689d6a;
-@define-color orange  #d65d0e;
-@define-color gray    #a89984;
-
 /* ============================================== */
 
 * {
   border: none;
   border-radius: 0;
   font-family: 'JetBrainsMono Nerd Font';
-
-  /* --- MASTER SIZE CONTROL --- */
   font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: @bg; /* Solid Background */
+  background-color: @bg;
   color: @fg;
 }
 
@@ -50,23 +31,19 @@ window#waybar {
     color: @fg;
     background-color: @bg1;
 
-    /* 1. THIN MARGINS (Gap from monitor edge) */
-    margin-top: 7px;
-    margin-bottom: 7px;
+    /* 4. TIGHT SPACING */
+    /* Minimal margins since the window padding handles the frame */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 
-    /* 2. GAP BETWEEN MODULES */
-    margin-left: 3px;
-    margin-right: 3px;
-
-    /* 3. TIGHT PADDING (Controls bar thickness) */
+    /* 5. MODULE SIZE */
     padding-top: 2px;
     padding-bottom: 2px;
-
-    /* Side padding */
     padding-left: 10px;
     padding-right: 10px;
 
-    /* Uniformity */
     min-width: 20px;
 }
 
@@ -74,12 +51,11 @@ window#waybar {
 #workspaces button {
     background-color: @bg1;
     color: @fg;
-    /* Reset padding to make them square-ish */
     padding-left: 12px;
     padding-right: 12px;
     margin-left: 2px;
     margin-right: 2px;
-    min-width: 26px;
+    min-width: 0;
     transition: all 0.3s ease;
 }
 
@@ -95,7 +71,6 @@ window#waybar {
     opacity: 1;
 }
 
-/* Faded Empty Workspaces */
 #workspaces button.empty {
     background-color: @bg1;
     color: @fg;
@@ -106,16 +81,15 @@ window#waybar {
     opacity: 0.7;
 }
 
-/* --- SPECIFIC MODULE CONFIGURATION --- */
+/* --- SPECIFIC MODULE COLORS --- */
 
-/* RunCat: Custom size to fit the thin bar */
 #custom-runcat {
     background-color: @purple;
     color: @bg;
-    font-size: 19px;     /* Big, but not too big for a thin bar */
+    font-size: 19px;
     padding-left: 4px;
     padding-right: 4px;
-    padding-bottom: 0;   /* Tight trim */
+    padding-bottom: 0;
 }
 
 #clock {
@@ -141,7 +115,6 @@ window#waybar {
     padding-right: 12px;
 }
 
-/* Right Modules */
 #group-tray-expander {
     background-color: @blue;
 }
@@ -177,7 +150,6 @@ window#waybar {
     color: @fg;
 }
 
-/* Battery */
 #battery {
     background-color: @fg;
     color: @bg;
