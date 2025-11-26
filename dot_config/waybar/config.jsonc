@@ -2,7 +2,11 @@
   "reload_style_on_change": true,
   "layer": "top",
   "position": "bottom",
+  "mode": "dock",
   "spacing": 0,
+  "margin-left": 7,
+  "margin-right": 7,
+  "margin-bottom": 7,
   "modules-left": ["clock", "custom/runcat", "custom/update", "customs/screenrecording-indicator"],
   "modules-center": ["custom/omarchy","hyprland/workspaces"],
   "modules-right": [
