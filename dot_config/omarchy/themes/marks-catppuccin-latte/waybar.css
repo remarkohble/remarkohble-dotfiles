@@ -1,0 +1,57 @@
+/* ================================================================= */
+/* 1. PALETTE DEFINITIONS (Raw Colors)                               */
+/* ================================================================= */
+
+/* --- ACCENTS --- */
+@define-color latte_rosewater #dc8a78; /* Rosewater */
+@define-color latte_flamingo  #dd7878; /* Flamingo */
+@define-color latte_pink      #ea76cb; /* Pink */
+@define-color latte_mauve     #8839ef; /* Mauve */
+@define-color latte_red       #d20f39; /* Red */
+@define-color latte_maroon    #e64553; /* Maroon */
+@define-color latte_peach     #fe640b; /* Peach */
+@define-color latte_yellow    #df8e1d; /* Yellow */
+@define-color latte_green     #40a02b; /* Green */
+@define-color latte_teal      #179299; /* Teal */
+@define-color latte_sky       #04a5e5; /* Sky */
+@define-color latte_sapphire  #209fb5; /* Sapphire */
+@define-color latte_blue      #1e66f5; /* Blue */
+@define-color latte_lavender  #7287fd; /* Lavender */
+
+/* --- GRAYSCALE / SURFACES --- */
+@define-color latte_text      #4c4f69; /* Text */
+@define-color latte_subtext1  #5c5f77; /* Subtext 1 */
+@define-color latte_subtext0  #6c6f85; /* Subtext 0 */
+@define-color latte_overlay2  #7c7f93; /* Overlay 2 */
+@define-color latte_overlay1  #8c8fa1; /* Overlay 1 */
+@define-color latte_overlay0  #9ca0b0; /* Overlay 0 */
+@define-color latte_surface2  #acb0be; /* Surface 2 */
+@define-color latte_surface1  #bcc0cc; /* Surface 1 */
+@define-color latte_surface0  #ccd0da; /* Surface 0 */
+@define-color latte_base      #eff1f5; /* Base */
+@define-color latte_mantle    #e6e9ef; /* Mantle */
+@define-color latte_crust     #dce0e8; /* Crust */
+
+
+/* ================================================================= */
+/* 2. THEME MAPPING (Linking Palette -> Waybar Variables)            */
+/* ================================================================= */
+
+/* Backgrounds */
+@define-color bg      @latte_base;     /* Base -> Main Bar Background */
+@define-color bg1     @latte_surface0; /* Surface 0 -> Module Background */
+@define-color bg2     @latte_surface1; /* Surface 1 -> Alt Background */
+@define-color fg      @latte_text;     /* Text -> Foreground */
+
+/* Accents (Mapped to standard generic names) */
+@define-color red     @latte_red;      /* Red */
+@define-color green   @latte_green;    /* Green */
+@define-color yellow  @latte_yellow;   /* Yellow */
+@define-color blue    @latte_blue;     /* Blue */
+@define-color purple  @latte_mauve;    /* Mauve */
+@define-color aqua    @latte_teal;     /* Teal */
+@define-color orange  @latte_peach;    /* Peach */
+@define-color gray    @latte_overlay0; /* Overlay 0 */
+
+/* You can easily swap these now! */
+/* Example: If you prefer Maroon for errors, change @latte_red to @latte_maroon above. */
