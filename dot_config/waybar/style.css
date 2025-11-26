@@ -84,7 +84,7 @@ window#waybar {
 /* --- SPECIFIC MODULE COLORS --- */
 
 #custom-runcat {
-    background-color: @purple;
+    background-color: @pink;
     color: @bg;
     font-size: 19px;
     padding-left: 4px;
@@ -98,7 +98,7 @@ window#waybar {
 }
 
 #custom-update {
-    background-color: @yellow;
+    background-color: @lightblue;
     color: @bg;
 }
 
@@ -137,7 +137,7 @@ window#waybar {
 
 #network {
     background-color: @purple;
-    color: @fg;
+    color: @bg;
 }
 
 #pulseaudio {
@@ -147,7 +147,7 @@ window#waybar {
 
 #cpu {
     background-color: @red;
-    color: @fg;
+    color: @bg;
 }
 
 #battery {
