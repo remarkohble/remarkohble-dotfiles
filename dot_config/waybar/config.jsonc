@@ -21,7 +21,7 @@
     "format": "{icon} {windows}",
     "format-window-separator": "",
     "workspace-taskbar": {
-        "enable": true,
+        "enable": false,
         "update-active-window": true,
         "format": "{icon}.",
         "icon-size": 17,
@@ -29,15 +29,15 @@
     },
     "format-icons": {
       "default": "",
-      "1": "󰎤 ",
-      "2": "󰎧 ",
-      "3": "󰎪 ",
-      "4": "󰎭 ",
-      "5": "󰎱 ",
-      "6": "󰎳 ",
-      "7": "󰎶 ",
-      "8": "󰎹 ",
-      "9": "󰎼 ",
+      "1": "󰎤",
+      "2": "󰎧",
+      "3": "󰎪",
+      "4": "󰎭",
+      "5": "󰎱",
+      "6": "󰎳",
+      "7": "󰎶",
+      "8": "󰎹",
+      "9": "󰎼",
       "active": "󱓻"
     },
     "persistent-workspaces": {
